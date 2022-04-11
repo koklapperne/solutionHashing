@@ -10,9 +10,35 @@ std::vector<std::string> shortUniqueNames;
 // Hash table
 std::string simpleHashTable[300];
 // Function implimentations
-int retriveFromHashTable (std::string activeName) {
-	// 08-04-2022 10.32
-	
+int findInHashTable () {
+	// 09-04-2022 17.45
+	//
+	std::string threeLetterName;
+	std::string result;
+	int hashValue;
+	//
+	threeLetterName = "###";
+	result = "***";
+	hashValue = 0;
+	//
+	std::cout << "Enter three letter name: ";
+	std::cin >> threeLetterName;
+	//
+	hashValue = simpleHashFunction(threeLetterName);
+	if (hashValue > 299) {
+		std::cout << "Out of range" << std::endl;
+		result = "###";
+	}
+	else {
+		result = simpleHashTable[hashValue];
+	}
+	//
+	if (result == "***") {
+		std::cout << "Not found" << std::endl;
+	}
+	else {
+		std::cout << "Name found on: " << hashValue;
+	}
 	//
 	return 0;
 }
@@ -95,7 +121,7 @@ int showFirstExampleOptions() {
 	std::cout << "2. Initialize hash table" << std::endl;
 	std::cout << "3. Hash" << std::endl;
 	std::cout << "4. Print hash table" << std::endl;
-	std::cout << "5. #" << std::endl;
+	std::cout << "5. Find in hash table" << std::endl;
 	std::cout << "6. #" << std::endl;
 	std::cout << "7. #" << std::endl;
 	std::cout << "8. #" << std::endl;
@@ -133,7 +159,7 @@ int handleFirstExampleOptions() {
 			appAction = printHashTable();
 			break;
 		case 5:
-			appAction = TextUserInterface::writeAppNoOption();
+			appAction = findInHashTable();
 			break;
 		case 6:
 			appAction = TextUserInterface::writeAppNoOption();
