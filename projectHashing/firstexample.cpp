@@ -12,15 +12,17 @@ std::string simpleHashTable[300];
 // Function implimentations
 int findInHashTable () {
 	// 09-04-2022 17.45
-	//
+	int appAction;
 	std::string threeLetterName;
 	std::string result;
 	int hashValue;
 	//
+	appAction = 0;
 	threeLetterName = "###";
 	result = "***";
 	hashValue = 0;
 	//
+	appAction = TextUserInterface::writeSelectionHighlighter();
 	std::cout << "Enter three letter name: ";
 	std::cin >> threeLetterName;
 	//
@@ -37,9 +39,11 @@ int findInHashTable () {
 		std::cout << "Not found" << std::endl;
 	}
 	else {
-		std::cout << "Name found on: " << hashValue;
+		std::cout << "Name found on position: " << hashValue << std::endl;
 	}
 	//
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	appAction = TextUserInterface::writeActionSeperator();
 	return 0;
 }
 int printHashTable() {

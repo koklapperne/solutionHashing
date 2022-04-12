@@ -27,6 +27,12 @@
     <ClCompile Include="firstexample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="linearprobing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="person.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="subfunctionality.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="firstexample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="linearprobing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

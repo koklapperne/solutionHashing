@@ -1,19 +1,33 @@
 // Local headers
-#include "textuserinterface.h"
-#include "subfunctionality.h"
-#include "firstexample.h"
 #include "linearprobing.h"
+#include "person.h"
+#include "textuserinterface.h"
 // Standard library headers
 #include <iostream>
-// Application options
-int showAppOptions() {
-	// 05-04-2022 15.27
+#include <vector>
+#include <string>
+// Global data structures
+// Test data
+// std::vector<person> testPersons;
+// Hash table
+// Maximum number of persons = 10
+// Size of hash table + 30% = 15
+// person simpleHashTable[15];
+// Options
+int populateTestPersons(){
+	// 12-04-2022 11.28
+	
+	//
+	return 0;
+}
+int showLinearProbingOptions() {
+	// 08-04-2022 08.54
 	int appAction = 0;
-	std::cout << "1. First example" << std::endl;
-	std::cout << "2. Linear probing" << std::endl;
-	std::cout << "3. #" << std::endl;
-	std::cout << "4. #" << std::endl;
-	std::cout << "5. #" << std::endl;
+	std::cout << "1. Populate test data structure" << std::endl;
+	std::cout << "2. Initialize hash table" << std::endl;
+	std::cout << "3. Hash" << std::endl;
+	std::cout << "4. Print hash table" << std::endl;
+	std::cout << "5. Find in hash table" << std::endl;
 	std::cout << "6. #" << std::endl;
 	std::cout << "7. #" << std::endl;
 	std::cout << "8. #" << std::endl;
@@ -22,16 +36,16 @@ int showAppOptions() {
 	//
 	return 0;
 }
-int handleAppOptions() {
-	// 05-04-2022 14.34
+int handleLinearProbingOptions() {
+	// 08-04-2022 08.54
+	// Colission resolution: Open addressing->Linear probing
 	int appAction = 0;
 	int choise = 99;
 	bool stop = false;
 	// Operations 
-	appAction = TextUserInterface::writeActionSeperator();
 	while (stop == false) {
-		appAction = TextUserInterface::writeAppInformation("-- Hashing --", "V.00.01");
-		appAction = showAppOptions();
+		appAction = TextUserInterface::writeSubFunctionalityInformation("--Linear Probing--", "V.00.01");
+		appAction = showLinearProbingOptions();
 		appAction = TextUserInterface::writeActionSeperator();
 		std::cout << "Enter choise: ";
 		std::cin >> choise;
@@ -40,10 +54,10 @@ int handleAppOptions() {
 		// Handle user input
 		switch (choise) {
 		case 1:
-			appAction = handleFirstExampleOptions();
+			appAction = TextUserInterface::writeAppNoOption();
 			break;
 		case 2:
-			appAction = handleLinearProbingOptions();
+			appAction = TextUserInterface::writeAppNoOption();
 			break;
 		case 3:
 			appAction = TextUserInterface::writeAppNoOption();
@@ -77,16 +91,4 @@ int handleAppOptions() {
 	}
 	//
 	return 0;
-}
-// Application entry point
-int main()
-{
-	// 05-04-2022 14.39
-	// Declarations
-	int appAction;
-	// Initializations
-	appAction = 0;
-	// Assigning
-	appAction = handleAppOptions();
-	appAction = TextUserInterface::preventConsoleClose();
 }

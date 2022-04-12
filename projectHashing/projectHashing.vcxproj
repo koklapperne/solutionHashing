@@ -140,12 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="firstexample.cpp" />
+    <ClCompile Include="linearprobing.cpp" />
+    <ClCompile Include="person.cpp" />
     <ClCompile Include="projectHashing.cpp" />
     <ClCompile Include="subfunctionality.cpp" />
     <ClCompile Include="textuserinterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="firstexample.h" />
+    <ClInclude Include="linearprobing.h" />
+    <ClInclude Include="person.h" />
     <ClInclude Include="subfunctionality.h" />
     <ClInclude Include="textuserinterface.h" />
   </ItemGroup>
