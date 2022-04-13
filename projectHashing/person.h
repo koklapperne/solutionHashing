@@ -7,6 +7,10 @@ public:
 	person();
 	// Updating
 	int update(std::string newName, std::string newOccupation, int newAge);
+	// Returning
+	std::string returnName();
+	std::string returnOccupation();
+	int returnAge();
 private:
 	// Data members
 	// This will be they key!

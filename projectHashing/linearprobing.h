@@ -1,5 +1,11 @@
 #pragma once
 // Function declarations
-int showLinearProbingOptions();
-int handleLinearProbingOptions();
-int populateTestPersons();
+namespace linearProbing{
+	int populateTestPersons();
+	int initializeHashTable();
+	int hashPersons();
+	int printHashTable();
+//
+	int showLinearProbingOptions();
+	int handleLinearProbingOptions();
+}

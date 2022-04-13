@@ -43,7 +43,7 @@ int handleAppOptions() {
 			appAction = handleFirstExampleOptions();
 			break;
 		case 2:
-			appAction = handleLinearProbingOptions();
+			appAction = linearProbing::handleLinearProbingOptions();
 			break;
 		case 3:
 			appAction = TextUserInterface::writeAppNoOption();
