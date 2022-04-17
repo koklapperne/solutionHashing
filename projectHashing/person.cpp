@@ -4,7 +4,7 @@
 person::person() {
 	// 12-04-2022 13.47
 	// Default constructor
-	m_shortUniqueName = "*";
+	m_shortUniqueName = "***";
 	m_occupation = "*";
 	m_age = 0;
 }

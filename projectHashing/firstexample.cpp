@@ -66,7 +66,7 @@ int simpleHashFunction(std::string activeName) {
 	int result;
 	result = 0;
 	// Travers name
-	for (int j = 0; j < 2; j++) {
+	for (int j = 0; j < 3; j++) {
 		result = result + int(activeName[j]);
 	}
 	//
@@ -95,15 +95,27 @@ int hashShortUniqueNames() {
 	return 0;
 }
 int initializeSimpleHashTable() {
-	// 07-04-2022 12.10
+	// 17-04-2022 09.34
+	// Declarations
+	int appAction;
+	// Initializations
+	appAction = 0;
 	for (int i = 0; i < 300; i++) {
 		simpleHashTable[i] = "***";
 	}
 	//
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	std::cout << "Hash table initialized" << std::endl;
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	appAction = TextUserInterface::writeActionSeperator();
 	return 0;
 }
 int populateShortUniqueNames() {
 	// 07-04-2022 11.28
+	// Declarations
+	int appAction;
+	// Initializations
+	appAction = 0;
 	shortUniqueNames.push_back("Bea");
 	shortUniqueNames.push_back("Clo");
 	shortUniqueNames.push_back("Tim");
@@ -115,6 +127,10 @@ int populateShortUniqueNames() {
 	shortUniqueNames.push_back("Sal");
 	shortUniqueNames.push_back("Zed");
 	//
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	std::cout << "Testdata structure populated" << std::endl;
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	appAction = TextUserInterface::writeActionSeperator();
 	return 0;
 }
 // Options

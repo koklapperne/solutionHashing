@@ -1,11 +1,10 @@
 // Local headers
 #include "linearprobing.h"
-#include "person.h"
+
 #include "textuserinterface.h"
 // Standard library headers
 #include <iostream>
 #include <vector>
-#include <string>
 // Global data structures
 // Test data
 std::vector<person> testPersons;
@@ -22,34 +21,34 @@ int linearProbing::populateTestPersons(){
 	// Initializations
 	appAction = 0;
 	// 0
-	newTestperson.update("Abe", "Professor", 55);
+	newTestperson.update("ABE", "Professor", 55);
 	testPersons.push_back(newTestperson);
 	// 1
-	newTestperson.update("Tim", "Student", 21);
+	newTestperson.update("TIM", "Student", 21);
 	testPersons.push_back(newTestperson);
 	// 2
-	newTestperson.update("Zoe", "Professor", 21);
+	newTestperson.update("ZOE", "Professor", 21);
 	testPersons.push_back(newTestperson);
 	// 3
-	newTestperson.update("Hal", "Student", 21);
+	newTestperson.update("HAL", "Student", 21);
 	testPersons.push_back(newTestperson);
 	// 4
-	newTestperson.update("Sal", "Student", 20);
+	newTestperson.update("SAL", "Student", 20);
 	testPersons.push_back(newTestperson);
 	// 5
-	newTestperson.update("Mit", "Teacher", 35);
+	newTestperson.update("MIT", "Teacher", 35);
 	testPersons.push_back(newTestperson);
 	// 6
-	newTestperson.update("Zed", "Student", 21);
+	newTestperson.update("ITM", "Student", 21);
 	testPersons.push_back(newTestperson);
 	// 7
-	newTestperson.update("Itm", "Teacher", 32);
+	newTestperson.update("LEO", "Teacher", 32);
 	testPersons.push_back(newTestperson);
 	// 8
-	newTestperson.update("Zed", "Student", 24);
+	newTestperson.update("ZED", "Student", 24);
 	testPersons.push_back(newTestperson);
 	// 9
-	newTestperson.update("Bea", "Student", 21);
+	newTestperson.update("BEA", "Student", 21);
 	testPersons.push_back(newTestperson);
 	//
 	appAction = TextUserInterface::writeSelectionHighlighter();
@@ -62,16 +61,84 @@ int linearProbing::initializeHashTable() {
 	// 13-04-2022 10.48
 	// Declarations
 	int appAction;
+	//
 	appAction = TextUserInterface::writeSelectionHighlighter();
 	std::cout << "Hash table initialized at declaration!" << std::endl;
+	//
 	appAction = TextUserInterface::writeSelectionHighlighter();
 	appAction = TextUserInterface::writeActionSeperator();
 	return 0;
 }
+int linearProbing::simpleHashFunction(std::string activeName) {
+	// 17-04-2022 10.04
+	int result;
+	result = 0;
+	// Travers name
+	for (int j = 0; j < 3; j++) {
+		result = result + int(activeName[j]);
+	}
+	// 
+	// result = result / 10;
+	result = result % 10;
+	
+	//
+	return result;
+}
+int linearProbing::probe(int key, person probePerson) {
+	// 17-04-2022 10.24
+	// Declarations
+	int i;
+	// Initializations
+	i=0;
+	// If position is empty use it
+	if (hashTable[key].returnName()=="***") {
+		std::cout << " Position empty, use" << std::endl;
+		hashTable[key] = probePerson;
+	}
+	else
+	{
+		// If position is not empty start a linear search for an empty position
+		std::cout << " Position not empty, linear search" << std::endl;
+		i = key;
+		while (hashTable[i].returnName() != "***") {
+			i++;
+
+			if (key > 15){
+				i = 0;
+			}
+		}
+		std::cout << "New position found on: " << i << std::endl;
+	}
+	// 
+	return 0;
+}
 int linearProbing::hashPersons() {
 	// 13-04-2022 11.08
-
+	// Declarations
+	int appAction;
+	int hashResult;
+	int j;
+	person activePerson;
+	std::vector<person>::iterator i;
+	// Initializations
+	appAction = 0;
+	j = 0;
+	hashResult = 0;
 	//
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	for (i = testPersons.begin(); i < testPersons.end(); i++) {
+		activePerson = *i;
+		hashResult = simpleHashFunction(activePerson.returnName());
+		if (j < 10) { std::cout << "0"; }
+		//std::cout << j << " " << "Short name: " << activePerson.returnName() << " Result: " << hashResult << std::endl;
+		std::cout << j << " " << "Short name: " << activePerson.returnName() << " Result: " << hashResult;
+		j++;
+		// Place in hash table
+		appAction = probe(hashResult, activePerson);
+	}
+	//
+	appAction = TextUserInterface::writeSelectionHighlighter();
+	appAction = TextUserInterface::writeActionSeperator();
 	return 0;
 }
 int linearProbing::printHashTable(){
@@ -136,7 +203,7 @@ int linearProbing::handleLinearProbingOptions() {
 			appAction = initializeHashTable();
 			break;
 		case 3:
-			appAction = TextUserInterface::writeAppNoOption();
+			appAction = hashPersons();
 			break;
 		case 4:
 			appAction = printHashTable();;
