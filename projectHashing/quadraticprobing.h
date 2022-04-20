@@ -1,0 +1,19 @@
+#pragma once
+// Local headers
+#include "person.h"
+// Standard library headers
+#include <string>
+// Function declarations
+namespace quadraticProbing {
+	int populateTestPersons();
+	int initializeHashTable();
+	int simpleHashFunction(std::string activeName);
+	int probe(int key, person probePerson);
+	int search(std::string activeName);
+	int searchPerson();
+	int hashPersons();
+	int printHashTable();
+	//
+	int showQuadraticProbingOptions();
+	int handleQuadraticProbingOptions();
+}

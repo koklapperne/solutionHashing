@@ -9,6 +9,8 @@ namespace linearProbing{
 	int initializeHashTable();
 	int simpleHashFunction(std::string activeName);
 	int probe(int key, person probePerson);
+	int search(std::string activeName);
+	int searchPerson();
 	int hashPersons();
 	int printHashTable();
 //

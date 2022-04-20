@@ -3,15 +3,16 @@
 #include "subfunctionality.h"
 #include "firstexample.h"
 #include "linearprobing.h"
+#include "quadraticprobing.h"
 // Standard library headers
 #include <iostream>
 // Application options
 int showAppOptions() {
-	// 05-04-2022 15.27
+	// 20-04-2022 08.01
 	int appAction = 0;
 	std::cout << "1. First example" << std::endl;
 	std::cout << "2. Linear probing" << std::endl;
-	std::cout << "3. #" << std::endl;
+	std::cout << "3. Qudratic probing" << std::endl;
 	std::cout << "4. #" << std::endl;
 	std::cout << "5. #" << std::endl;
 	std::cout << "6. #" << std::endl;
@@ -23,7 +24,7 @@ int showAppOptions() {
 	return 0;
 }
 int handleAppOptions() {
-	// 05-04-2022 14.34
+	// 20-04-2022 08.01
 	int appAction = 0;
 	int choise = 99;
 	bool stop = false;
@@ -46,7 +47,7 @@ int handleAppOptions() {
 			appAction = linearProbing::handleLinearProbingOptions();
 			break;
 		case 3:
-			appAction = TextUserInterface::writeAppNoOption();
+			appAction = quadraticProbing::handleQuadraticProbingOptions();
 			break;
 		case 4:
 			appAction = TextUserInterface::writeAppNoOption();
